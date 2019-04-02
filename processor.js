@@ -26,7 +26,7 @@
 
 	record.insert();
 
-    g_processor.writeOutput("Response has been given by NetOps team in closed notes");
+  g_processor.writeOutput("Response has been given by NetOps team in closed notes");
 	g_response.setStatus(200);
 
 

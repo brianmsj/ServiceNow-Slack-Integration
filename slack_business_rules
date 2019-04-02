@@ -1,0 +1,15 @@
+(function executeRule(current, previous /*null when async*/) {
+
+	var number = current.u_text.slice(0,9);
+
+	var gr = new GlideRecord('sn_customerservice_case');
+	    gr.addQuery('number',number);
+		gr.query();
+		while(gr.next()) {
+		gr.getValue('close_notes');
+		gr.setValue('close_notes', current.u_user_name + ' has set resolution notes of ' + current.u_text.slice(10));
+		gr.setWorkflow(false);
+		gr.update();
+		}
+
+})(current, previous);
